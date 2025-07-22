@@ -204,7 +204,7 @@ const activities = [
       "Data Structures, Graph Theory, Dynamic Programming, Number Theory, Bit Manipulation, and Greedy Algorithms.",
   },
   {
-    title: "ICPC Regional Finalist",
+    title: "ICPC Regional",
     detail:
       "Represented AIUB in ICPC 2019, 2020 & 2021 with teams: AIUB_Illuminate, AIUB_Miniature.",
   },
