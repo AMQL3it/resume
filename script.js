@@ -1,61 +1,79 @@
-const Header = () => (
-  <div
-    id="header_part"
-    className="bg-black text-white fixed top-0 left-0 h-screen w-64 p-4 hidden md:flex flex-col justify-between"
-  >
-    {/* Top Profile Section */}
-    <section className="profile flex flex-col items-center">
-      <img
-        className="rounded-full mb-2"
-        src="asset/Images/propic.png"
-        alt="Profile"
-        height="160"
-        width="160"
-        style={{ border: "2px solid #4CAF50" }}
-        loading="lazy"
-        decoding="async"
-        fetchpriority="high"
-      />
-      <h1 className="font-bold text-white">Atiqur Rahman Rasel</h1>
-      <h4 className="text-sm text-green-400">Software Engineer</h4>
-    </section>
+const Header = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
 
-    {/* Center Nav Menu */}
-    <ul className="space-y-2">
-      {[
-        { href: "#home", icon: "home", label: "Home" },
-        { href: "#education", icon: "graduation-cap", label: "Education" },
-        { href: "#skills", icon: "cogs", label: "Skills" },
-        { href: "#experiences", icon: "briefcase", label: "Experiences" },
-        { href: "#projects", icon: "folder", label: "Projects" },
-        { href: "#contact", icon: "envelope", label: "Contact" },
-      ].map(({ href, icon, label }) => (
-        <li
-          key={href}
-          className="bg-gray-800 p-2 rounded hover:bg-gray-700 transition-colors duration-300"
-        >
-          <a
-            href={href}
-            className="font-bold flex items-center space-x-3 hover:text-green-400 transition-colors duration-300"
-          >
-            <i className={`fa fa-${icon} text-green-500 text-xl`}></i>
-            <span>{label}</span>
-          </a>
-        </li>
-      ))}
-    </ul>
+  return (
+    <>
+      {/* Mobile Toggle Button */}
+      <button
+        className="md:hidden fixed top-4 left-4 z-50 bg-green-500 text-white p-2 rounded focus:outline-none"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <i className="fa fa-bars text-xl"></i>
+      </button>
 
-    {/* Bottom Social Icons */}
-    <section className="text-[24px] text-center">
-      <div>
-        <i className="fa fa-github font-bold text-green-400 px-4 cursor-pointer"></i>
-        <i className="fa fa-linkedin font-bold text-green-400 px-4 cursor-pointer"></i>
-        <i className="fa fa-facebook font-bold text-green-400 px-4 cursor-pointer"></i>
-        <i className="fa fa-whatsapp font-bold text-green-400 px-4 cursor-pointer"></i>
+      {/* Sidebar */}
+      <div
+        id="header_part"
+        className={`fixed top-0 left-0 h-screen w-64 p-4 bg-black text-white z-40 transition-transform duration-300 ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } md:translate-x-0 md:flex flex-col justify-between`}
+      >
+        {/* Top Profile Section */}
+        <section className="profile flex flex-col items-center">
+          <img
+            className="rounded-full mb-2"
+            src="asset/Images/propic.png"
+            alt="Profile"
+            height="160"
+            width="160"
+            style={{ border: "2px solid #4CAF50" }}
+            loading="lazy"
+            decoding="async"
+            fetchpriority="high"
+          />
+          <h1 className="font-bold text-white">Atiqur Rahman Rasel</h1>
+          <h4 className="text-sm text-green-400">Software Engineer</h4>
+        </section>
+
+        {/* Center Nav Menu */}
+        <ul className="space-y-2 mt-6">
+          {[
+            { href: "#home", icon: "home", label: "Home" },
+            { href: "#education", icon: "graduation-cap", label: "Education" },
+            { href: "#skills", icon: "cogs", label: "Skills" },
+            { href: "#experiences", icon: "briefcase", label: "Experiences" },
+            { href: "#projects", icon: "folder", label: "Projects" },
+            { href: "#contact", icon: "envelope", label: "Contact" },
+          ].map(({ href, icon, label }) => (
+            <li
+              key={href}
+              className="bg-gray-800 p-2 rounded hover:bg-gray-700 transition-colors duration-300"
+              onClick={() => setIsOpen(false)} // Close on link click
+            >
+              <a
+                href={href}
+                className="font-bold flex items-center space-x-3 hover:text-green-400 transition-colors duration-300"
+              >
+                <i className={`fa fa-${icon} text-green-500 text-xl`}></i>
+                <span>{label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Bottom Social Icons */}
+        <section className="text-[24px] text-center mt-6">
+          <div>
+            <i className="fa fa-github font-bold text-green-400 px-4 cursor-pointer"></i>
+            <i className="fa fa-linkedin font-bold text-green-400 px-4 cursor-pointer"></i>
+            <i className="fa fa-facebook font-bold text-green-400 px-4 cursor-pointer"></i>
+            <i className="fa fa-whatsapp font-bold text-green-400 px-4 cursor-pointer"></i>
+          </div>
+        </section>
       </div>
-    </section>
-  </div>
-);
+    </>
+  );
+};
 
 const HomeSection = () => (
   <section
