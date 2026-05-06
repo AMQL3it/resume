@@ -29,7 +29,6 @@ const Header = () => {
             style={{ border: "2px solid #4CAF50" }}
             loading="lazy"
             decoding="async"
-            fetchpriority="high"
           />
           <h1 className="font-bold text-white">Atiqur Rahman Rasel</h1>
           <h4 className="text-sm text-green-400">Software Engineer</h4>
