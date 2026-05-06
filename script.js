@@ -22,7 +22,7 @@ const Header = () => {
         <section className="profile flex flex-col items-center">
           <img
             className="rounded-full mb-2"
-            src="asset/Images/propic.png"
+            src="asset/Images/profile.png"
             alt="Profile"
             height="160"
             width="160"
